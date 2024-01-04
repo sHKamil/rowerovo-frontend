@@ -1,13 +1,6 @@
-<template>
-  <div>
-    <button @click="getData">Get Data</button>
-    <div>{{ testApi.message }}</div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import axios from "axios";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 
 type test = {
   message: string;
@@ -19,7 +12,10 @@ const testApi: test = reactive({
   path: "",
 });
 
+const show = ref(false);
+
 async function getData() {
+  show.value = !show.value;
   try {
     const response = await axios.get("http://127.0.0.1:8000/api");
     testApi.message = response.data.message;
@@ -29,3 +25,17 @@ async function getData() {
   }
 }
 </script>
+
+<template>
+  <div class="container">
+    <button @click="getData">Get Data</button>
+    <div v-if="show">{{ testApi.message }}</div>
+  </div>
+</template>
+
+<style scoped>
+.container {
+  width: 15rem;
+  height: 7rem;
+}
+</style>
