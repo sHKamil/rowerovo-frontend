@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { ProductType } from '@/utils/types/ProductType.js';
 import { ref } from 'vue';
 import { GetProducts } from '../utils/GetProducts.js';
-import type { ProductType } from '@/utils/types/ProductType.js';
+import Product from '../components/Product.vue'
 
 const products_data = ref<ProductType[]>([]);
 
@@ -13,8 +14,8 @@ promise_products.then((products: ProductType[]) => {
 </script>
 
 <template>
-    <div>
-      
+    <div class="max-w-fit m-auto mt-20 grid grid-cols-3 grid-flow-row gap-10 justify-between">
+      <Product v-for="product in products_data" :product="product" />
     </div>
 </template>
 <style scoped>

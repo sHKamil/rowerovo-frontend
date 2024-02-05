@@ -6,7 +6,7 @@ import DarkMode from './components/DarkMode.vue';
 </script>
 
 <template>
-  <header class="flex justify-between items-center p-2" >
+  <header class="flex justify-between items-center p-2 border-b" >
     <Logo :width="300"/>
       <div>
       </div>
