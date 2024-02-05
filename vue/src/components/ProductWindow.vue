@@ -25,15 +25,16 @@ const props = defineProps({
           <img :src="imageUrl" class="w-full max-h-72 object-cover overflow-hidden rounded-t-md" draggable="false">
         </DialogTitle>
         <DialogDescription class="px-3">
-          <p class="text-lg">Model: {{ product.name }}</p>
+          <p class="text-2xl">Model: {{ product.name }}</p>
           <p>Color: {{ product.color }}</p>
           <p>Type: {{ product.type }}</p>
-          <p>Frame size: {{ product.size }}</p>
-          <p>Wheel size: {{ product.wheel_size }}</p>
+          <p>Frame size: {{ product.size }}"</p>
+          <p>Wheel size: {{ product.wheel_size }}"</p>
         </DialogDescription>
       </DialogHeader>
 
-      <DialogFooter class="p-3">
+      <DialogFooter class="p-3 justify-between sm:justify-between items-center border-t">
+        <p class="text-xl text-left">Price: ${{ product.price }}</p>
         <DialogClose class="flex justify-between gap-2">
           <Button :variant="'secondary'">Cancel</Button>
           <Button>Reserve</Button>

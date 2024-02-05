@@ -14,7 +14,7 @@ promise_products.then((products: ProductType[]) => {
 </script>
 
 <template>
-    <div class="max-w-fit m-auto mt-20 grid grid-cols-3 grid-flow-row gap-10 justify-between">
+    <div class="max-w-fit m-auto mt-20 grid 2xl:grid-cols-3 2xl:grid-flow-row xl:grid-cols-2 xl:grid-flow-row gap-10 justify-between">
       <Product v-for="product in products_data" :product="product" />
     </div>
 </template>

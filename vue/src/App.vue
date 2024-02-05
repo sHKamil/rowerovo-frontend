@@ -7,10 +7,10 @@ import DarkMode from './components/DarkMode.vue';
 
 <template>
   <header class="flex justify-between items-center p-2 border-b" >
-    <Logo :width="300"/>
+    <RouterLink to="/"><Logo :width="300"/></RouterLink>
       <div>
       </div>
-      <nav class="flex gap-2">
+      <nav class="flex gap-2 items-center">
         <Button><RouterLink to="/">Home</RouterLink></Button>
         <Button><RouterLink to="/products">Products</RouterLink></Button>
         <DarkMode />
