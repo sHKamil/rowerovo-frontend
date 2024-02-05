@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import { useDark } from '@vueuse/core';
-    import { ref, watch} from 'vue';
+    import { ref, watch } from 'vue';
 
     const props = defineProps({
         width: Number

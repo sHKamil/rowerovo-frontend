@@ -1,21 +1,22 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { Button } from './components/ui/button';
 import Logo from './components/Logo.vue'
 import DarkMode from './components/DarkMode.vue';
 </script>
 
 <template>
-  <header>
+  <header class="flex justify-between items-center p-2" >
     <Logo :width="300"/>
       <div>
       </div>
-      <nav>
+      <nav class="flex gap-2">
+        <Button><RouterLink to="/">Home</RouterLink></Button>
+        <Button><RouterLink to="/products">Products</RouterLink></Button>
         <DarkMode />
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/api">API</RouterLink>
       </nav>
   </header>
-  <main class="bg-primary min-h-dvh"> sefse
+  <main class="bg-background ">
     <RouterView />
   </main>
 </template>

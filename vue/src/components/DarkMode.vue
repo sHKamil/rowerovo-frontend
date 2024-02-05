@@ -6,7 +6,7 @@
     const toggleDark = useToggle(isDark);
 </script>
 <template>
-    <Button @click="toggleDark()">Toggle Dark Mode</button>
+    <Button @click="toggleDark()">Toggle Mode</button>
 </template>
 <style scoped>
 </style>
