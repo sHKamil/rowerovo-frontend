@@ -9,7 +9,6 @@ const props = defineProps({
             type: Object as PropType<ProductType>,
             required: true
         },
-        imageUrl: String
     });
 
 </script>
@@ -22,7 +21,7 @@ const props = defineProps({
     <DialogContent class="p-0">
       <DialogHeader>
         <DialogTitle>
-          <img :src="imageUrl" class="w-full max-h-72 object-cover overflow-hidden rounded-t-md" draggable="false">
+          <img :src="product.image" class="w-full max-h-72 object-cover overflow-hidden rounded-t-md" draggable="false">
         </DialogTitle>
         <DialogDescription class="px-3">
           <p class="text-2xl">Model: {{ product.name }}</p>

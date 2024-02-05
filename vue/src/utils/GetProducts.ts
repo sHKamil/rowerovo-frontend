@@ -19,6 +19,7 @@ export async function GetProducts() : Promise<ProductType[]> {
   const backend_domain = GetBackendUrl();
   const data = await axios.get(backend_domain + '/vehicles');
         data.data.forEach((product: ProductType) => {
+          product.image = backend_domain + "/img/" + product.image;
           products.push(product);
         });
 

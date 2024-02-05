@@ -13,19 +13,19 @@
     });
 
     const product: ProductType = props.product;
-    const imageUrl = GetBackendUrl() + "/img/" + props.product.image;
+
 
 </script>
 
 <template>
-    <ProductWindow :product="product" :imageUrl="imageUrl">
+    <ProductWindow :product="product">
         <Card>
             <CardHeader>
                 <CardTitle>Model: {{ product.name }}</CardTitle>
                 <CardDescription>Type: {{ product.type }}</CardDescription>
             </CardHeader>
             <CardContent>
-                <img :src="imageUrl" class="w-full max-h-72 object-cover overflow-hidden" draggable="false">
+                <img :src="product.image" class="w-full max-h-72 object-cover overflow-hidden" draggable="false">
             </CardContent>
             <CardFooter class="mt-3">
                 Price: ${{ product.price }}
