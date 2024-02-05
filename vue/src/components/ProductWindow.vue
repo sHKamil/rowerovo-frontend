@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { ProductType } from '@/utils/types/ProductType.js';
 import type { PropType } from 'vue';
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog'
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from '@/components/ui/dialog'
+import { DialogClose } from 'radix-vue';
+import Button from './ui/button/Button.vue';
 const props = defineProps({
         product: {
             type: Object as PropType<ProductType>,
@@ -13,25 +15,30 @@ const props = defineProps({
 </script>
 
 <template>
-  <AlertDialog>
-    <AlertDialogTrigger><slot></slot></AlertDialogTrigger>
-    <AlertDialogContent class="p-0 gap-0">
-      <AlertDialogHeader>
-        <AlertDialogTitle>
+  <Dialog>
+    <DialogTrigger>
+      <slot></slot>
+    </DialogTrigger>
+    <DialogContent class="p-0">
+      <DialogHeader>
+        <DialogTitle>
           <img :src="imageUrl" class="w-full max-h-72 object-cover overflow-hidden rounded-t-md" draggable="false">
-        </AlertDialogTitle>
-        <AlertDialogDescription class="p-3">
+        </DialogTitle>
+        <DialogDescription class="px-3">
           <p class="text-lg">Model: {{ product.name }}</p>
           <p>Color: {{ product.color }}</p>
           <p>Type: {{ product.type }}</p>
           <p>Frame size: {{ product.size }}</p>
           <p>Wheel size: {{ product.wheel_size }}</p>
-        </AlertDialogDescription>
-      </AlertDialogHeader>
-      <AlertDialogFooter class="p-3">
-        <AlertDialogCancel>Cancel</AlertDialogCancel>
-        <AlertDialogAction>Reserve</AlertDialogAction>
-      </AlertDialogFooter>
-    </AlertDialogContent>
-  </AlertDialog>
+        </DialogDescription>
+      </DialogHeader>
+
+      <DialogFooter class="p-3">
+        <DialogClose class="flex justify-between gap-2">
+          <Button :variant="'secondary'">Cancel</Button>
+          <Button>Reserve</Button>
+        </DialogClose>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
 </template>
